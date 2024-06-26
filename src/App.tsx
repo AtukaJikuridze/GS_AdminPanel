@@ -1,16 +1,10 @@
-import './App.css'
-import { Routes, HashRouter ,Route} from "react-router-dom";
-import Homepage from './pages/Homepage/Homepage';
+import "./App.css";
+import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
-
   return (
-    <HashRouter basename="/">
-      <Routes>
-        <Route path="/" element={<Homepage/>} />
-      </Routes>
-    </HashRouter>
+    <Homepage/>
   );
 }
 
-export default App
+export default App;

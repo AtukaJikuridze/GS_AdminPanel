@@ -2,32 +2,32 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const [balance, setBalance] = useState(null);
-  const [openedBalance, setOpenedBalance] = useState(false);
-  const [openedReg, setOpenedReg] = useState(false);
-  const [email, setEmail] = useState("");
-  const [openAmount, setOpenAmount] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [stoppingGame, setStoppingGame] = useState(false);
-  const [depositing, setDepositing] = useState(false);
-  const [withdraw, setWithdraw] = useState(false);
-  const [giftCard, setGiftCard] = useState(false);
-  const [usersGiftcards, setUsersGiftcards] = useState(false);
-  const [usersGifts, setUsersGifts] = useState([]);
-  const [addingQuestions, setAddingQuestions] = useState(false);
-  const [questionOnGeorgian, setQuestionOnGeorgian] = useState("");
-  const [questionOnEnglish, setQuestionOnEnglish] = useState("");
-  const [firstanswerGe, setFirstAnswerGe] = useState("");
-  const [secondanswerGe, setSecondAnswerGe] = useState("");
-  const [threetanswerGe, setThreeAnswerGe] = useState("");
-  const [fourtanswerGe, setfourAnswerGe] = useState("");
-  const [firstanswerEn, setFirstAnswerEn] = useState("");
-  const [secondanswerEn, setSecondAnswerEn] = useState("");
-  const [threetanswerEn, setThreeAnswerEn] = useState("");
-  const [fourtanswerEn, setfourAnswerEn] = useState("");
-  const [rightAnswerGe, setRightAnswerGe] = useState("");
-  const [rightAnswerEn, setRightAnswerEn] = useState("");
-  const [registeredUsers,setRegisteredUsers]=useState(null)
+  const [balance, setBalance] = useState<number | null>(null);
+  const [openedBalance, setOpenedBalance] = useState<boolean>(false);
+  const [openedReg, setOpenedReg] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [openAmount, setOpenAmount] = useState<boolean>(false);
+  const [amount, setAmount] = useState<string>("");
+  const [stoppingGame, setStoppingGame] = useState<boolean>(false);
+  const [depositing, setDepositing] = useState<boolean>(false);
+  const [withdraw, setWithdraw] = useState<boolean>(false);
+  const [giftCard, setGiftCard] = useState<boolean>(false);
+  const [usersGiftcards, setUsersGiftcards] = useState<boolean>(false);
+  const [usersGifts, setUsersGifts] = useState<any[]>([]);
+  const [addingQuestions, setAddingQuestions] = useState<boolean>(false);
+  const [questionOnGeorgian, setQuestionOnGeorgian] = useState<string>("");
+  const [questionOnEnglish, setQuestionOnEnglish] = useState<string>("");
+  const [firstanswerGe, setFirstAnswerGe] = useState<string>("");
+  const [secondanswerGe, setSecondAnswerGe] = useState<string>("");
+  const [threetanswerGe, setThreeAnswerGe] = useState<string>("");
+  const [fourtanswerGe, setfourAnswerGe] = useState<string>("");
+  const [firstanswerEn, setFirstAnswerEn] = useState<string>("");
+  const [secondanswerEn, setSecondAnswerEn] = useState<string>("");
+  const [threetanswerEn, setThreeAnswerEn] = useState<string>("");
+  const [fourtanswerEn, setfourAnswerEn] = useState<string>("");
+  const [rightAnswerGe, setRightAnswerGe] = useState<string>("");
+  const [rightAnswerEn, setRightAnswerEn] = useState<string>("");
+  const [registeredUsers, setRegisteredUsers] = useState<number | null>(null);
   const questionsData = {
     question_GE: questionOnGeorgian,
     question_EN: questionOnEnglish,
@@ -43,9 +43,11 @@ export default function Homepage() {
     right_answer_EN: rightAnswerEn,
   };
   useEffect(() => {
-    axios.get("https://testapi-pd9s.onrender.com/api/users/registered_users").then((response)=>{
-setRegisteredUsers(response.data)
-    })
+    axios
+      .get("https://testapi-pd9s.onrender.com/api/users/registered_users")
+      .then((response) => {
+        setRegisteredUsers(response.data);
+      });
     axios
       .get("https://testapi-pd9s.onrender.com/api/admin/balance")
       .then((response) => {
