@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "deploy": "vite build && git add dist && git commit -m 'deploy' && git subtree push --prefix dist origin gh-pages",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
